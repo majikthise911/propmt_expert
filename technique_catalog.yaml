@@ -1,0 +1,248 @@
+techniques:
+  - id: zero_shot
+    name: Zero-Shot Prompting
+    category: Basic Instruction
+    complexity: Low
+    template: |
+      You are {role}.
+      
+      Task: {task}
+      
+      Output format: {format}
+    use_cases:
+      - Simple classification
+      - Direct Q&A
+      - Format conversion
+    evidence:
+      - Liu et al. (2021)
+    performance:
+      math: 3
+      creative: 4
+      analysis: 3
+      code: 3
+      general: 5
+  
+  - id: few_shot
+    name: Few-Shot Prompting
+    category: Basic Instruction
+    complexity: Medium
+    template: |
+      Here are examples of the task:
+      
+      Example 1:
+      Input: {example1_input}
+      Output: {example1_output}
+      
+      Example 2:
+      Input: {example2_input}
+      Output: {example2_output}
+      
+      Now solve this:
+      Input: {actual_input}
+      Output:
+    use_cases:
+      - Pattern learning
+      - Style matching
+      - Complex formatting
+    evidence:
+      - Liu et al. (2021)
+      - Brown et al. (2020)
+    performance:
+      math: 4
+      creative: 5
+      analysis: 4
+      code: 5
+      general: 4
+  
+  - id: chain_of_thought
+    name: Chain-of-Thought
+    category: Reasoning Enhancement
+    complexity: Medium
+    template: |
+      Let's solve this step by step:
+      
+      Problem: {problem}
+      
+      Step 1: [First reasoning step]
+      Step 2: [Second reasoning step]
+      ...
+      
+      Final Answer:
+    use_cases:
+      - Mathematical reasoning
+      - Logic puzzles
+      - Multi-step analysis
+    evidence:
+      - Wei et al. (2022)
+      - Schulhoff et al. (2024)
+    citations: 1800
+    performance:
+      math: 5
+      creative: 3
+      analysis: 5
+      code: 4
+      general: 3
+  
+  - id: self_consistency
+    name: Self-Consistency
+    category: Reasoning Enhancement
+    complexity: High
+    template: |
+      Generate 3 independent reasoning paths for: {problem}
+      
+      Path 1:
+      [Reasoning and conclusion]
+      
+      Path 2:
+      [Alternative reasoning and conclusion]
+      
+      Path 3:
+      [Third reasoning and conclusion]
+      
+      Majority Vote Result:
+      [Final answer based on agreement]
+    use_cases:
+      - Critical decisions
+      - Verification tasks
+      - Ambiguous problems
+    evidence:
+      - Wang et al. (2022)
+      - Schulhoff et al. (2024)
+    citations: 900
+    performance:
+      math: 5
+      creative: 3
+      analysis: 5
+      code: 4
+      general: 4
+  
+  - id: tree_of_thoughts
+    name: Tree-of-Thoughts
+    category: Reasoning Enhancement
+    complexity: High
+    template: |
+      Problem: {problem}
+      
+      Explore 3 solution branches:
+      
+      Branch A: {approach_a}
+      - Evaluation: [pros/cons]
+      - Feasibility: [assessment]
+      
+      Branch B: {approach_b}
+      - Evaluation: [pros/cons]
+      - Feasibility: [assessment]
+      
+      Branch C: {approach_c}
+      - Evaluation: [pros/cons]
+      - Feasibility: [assessment]
+      
+      Best Path: [Selection and execution]
+    use_cases:
+      - Creative problem-solving
+      - Strategic planning
+      - Optimization problems
+    evidence:
+      - Yao et al. (2023)
+      - Schulhoff et al. (2024)
+    citations: 600
+    performance:
+      math: 4
+      creative: 5
+      analysis: 5
+      code: 4
+      general: 3
+  
+  - id: react
+    name: ReAct (Reasoning + Acting)
+    category: Agentic
+    complexity: High
+    template: |
+      Task: {task}
+      
+      Thought 1: [What I need to figure out]
+      Action 1: [Information to gather or tool to use]
+      Observation 1: [What I learned]
+      
+      Thought 2: [Next reasoning step]
+      Action 2: [Next action]
+      Observation 2: [Result]
+      
+      [Continue cycles...]
+      
+      Final Answer: [Conclusion based on observations]
+    use_cases:
+      - Research tasks
+      - Information gathering
+      - Tool-using agents
+    evidence:
+      - Yao et al. (2022)
+      - Schulhoff et al. (2024)
+    citations: 850
+    performance:
+      math: 3
+      creative: 2
+      analysis: 5
+      code: 4
+      general: 4
+  
+  - id: multi_agent
+    name: Multi-Agent Coordination
+    category: Agentic
+    complexity: High
+    template: |
+      You coordinate {n} specialized agents:
+      {agent_list}
+      
+      Task: {task}
+      
+      {agent_1_section}
+      {agent_2_section}
+      ...
+      
+      Synthesis:
+      [Integrated analysis from all perspectives]
+    use_cases:
+      - Complex analysis
+      - Code review
+      - Strategic planning
+    evidence:
+      - Claude Code Best Practices (2024)
+      - Anthropic Internal Metrics
+    performance:
+      math: 4
+      creative: 4
+      analysis: 5
+      code: 5
+      general: 4
+  
+  - id: structured_output
+    name: Structured Output
+    category: Output Control
+    complexity: Low
+    template: |
+      {task}
+      
+      Respond in this exact format:
+      
+      ```json
+      {
+        "field1": "value",
+        "field2": "value"
+      }
+      ```
+      
+      Example:
+      {example_output}
+    use_cases:
+      - Data extraction
+      - API responses
+      - Consistent formatting
+    evidence:
+      - Schulhoff et al. (2024)
+    performance:
+      math: 3
+      creative: 2
+      analysis: 4
+      code: 5
+      general: 4
